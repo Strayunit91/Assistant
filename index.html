@@ -43,6 +43,9 @@
     <div id="mainApp" style="display: none;">
         <p>Загрузите файл Character.json:</p>
         <input type="file" id="uploadJson" accept=".json"><br>
+        <button onclick="loadFromLocal()">Применить личность</button>
+        <button onclick="clearPersona()">Очистить личность</button>
+        <div id="status">👤 Личность не загружена.</div>
 
         <textarea id="userInput" rows="4" cols="50" placeholder="Напиши что-нибудь..."></textarea><br>
         <button onclick="sendToModel()">Отправить</button>
