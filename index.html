@@ -13,6 +13,13 @@
 <body>
   <div class="container">
     <h1>Creative Assistant</h1>
+    
+    <div id="passwordPrompt">
+        <p>Введите пароль доступа:</p>
+        <input type="password" id="accessPassword" placeholder="Пароль">
+        <button onclick="checkPassword()">Войти</button>
+    </div>
+    
     <div id="chat-box"></div>
     <div class="controls">
       <input type="text" id="user-input" placeholder="Напиши что-нибудь..." />
