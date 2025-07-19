@@ -1,4 +1,4 @@
-
+let characterFile = "tosha.json";
 function sendMessage() {
   const input = document.getElementById('user-input');
   const chat = document.getElementById('chat-box');
