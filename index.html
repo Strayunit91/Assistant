@@ -91,6 +91,33 @@
             }
         });
 
+              function loadFromLocal() {
+            const toshaData = localStorage.getItem("toshaProfile");
+            if (toshaData) {
+                currentPersona = JSON.parse(toshaData);
+                updateStatus();
+                alert("Личность Tosha применена 🧠");
+            } else {
+                alert("Личность не найдена в памяти 😔");
+            }
+        }
+
+        function clearPersona() {
+            localStorage.removeItem("toshaProfile");
+            currentPersona = {};
+            updateStatus();
+            alert("Личность сброшена 💨");
+        }
+
+        function updateStatus() {
+            const statusDiv = document.getElementById("status");
+            if (currentPersona?.name || currentPersona?.description) {
+                statusDiv.innerHTML = `✅ Личность активна: ${currentPersona.name || "без имени"}<br>${currentPersona.description || ""}`;
+            } else {
+                statusDiv.innerHTML = "👤 Личность не загружена.";
+            }
+        }
+      
         async function sendToModel() {
             const prompt = document.getElementById("userInput").value;
             const responseDiv = document.getElementById("output");
