@@ -44,7 +44,7 @@
         <p>Загрузите файл tosha.json:</p>
         <input type="file" id="uploadJson" accept=".json"><br>
 
-        <textarea id="userInput" rows="4" cols="50" placeholder="Введите сообщение для Тоши..."></textarea><br>
+        <textarea id="userInput" rows="4" cols="50" placeholder="Напиши что-нибудь..."></textarea><br>
         <button onclick="sendToModel()">Отправить</button>
 
         <div id="output"></div>
@@ -97,7 +97,7 @@
                 const response = await fetch("https://api-inference.huggingface.co/models/openhermes/OpenHermes-2.5-Mistral-7B", {
                     method: "POST",
                     headers: {
-                        "Authorization": "Bearer ВСТАВЬ_ТУТ_СВОЙ_HUGGINGFACE_ТОКЕН",
+                        "Authorization": "Bearer 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",
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
