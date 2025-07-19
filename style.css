@@ -1,0 +1,40 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
+}
+.container {
+  padding: 20px;
+}
+#chat-box {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #333;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #222;
+}
+.controls {
+  display: flex;
+}
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #333;
+  color: #fff;
+}
+button {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.panic {
+  margin-top: 10px;
+  background: crimson;
+}
