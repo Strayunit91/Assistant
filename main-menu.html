@@ -1,3 +1,11 @@
+
+<script>
+  // Проверяем, есть ли данные пользователя
+  if (!localStorage.getItem('user')) {
+    window.location.href = "index.html";
+  }
+</script>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -128,7 +136,7 @@
     <a href="#">Мой профиль</a>
     <a href="#">Создать личность</a>
     <a href="#">Разрешения</a>
-    <a href="index.html" class="logout">Выйти</a>
+    <a href="#" class="logout" onclick="logout()">Выйти</a>
   </div>
 
   <!-- Основное содержимое -->
@@ -163,6 +171,11 @@
       alert("Открытие списка чатов");
       // window.location.href = "my-chats.html";
     }
+
+    function logout() {
+      localStorage.removeItem('authToken'); // если используете токены
+      window.location.href = "index.html";
+}
 
     // Закрываем меню при клике вне его области
     document.addEventListener('click', function(event) {
