@@ -2,6 +2,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('loginForm');
     const themeToggle = document.createElement('button');
     
+   // Добавляем в начало файла
+function navigateTo(url) {
+    const mainContent = document.querySelector('.page-content');
+    if (!mainContent) return window.location = url;
+    
+    mainContent.classList.add('page-exit-active');
+    
+    setTimeout(() => {
+        window.location = url;
+    }, 200);
+}
+
+// Заменяем обычные ссылки на анимированные
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (link.href && !link.href.includes('#')) {
+            e.preventDefault();
+            navigateTo(link.href);
+        }
+    });
+});
+
+// Добавляем при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    const content = document.querySelector('.page-content');
+    if (content) {
+        setTimeout(() => {
+            content.classList.add('page-enter-active');
+        }, 10);
+    }
+});
+
     // Тогглер темы
     themeToggle.textContent = '🌓';
     themeToggle.style.position = 'fixed';
@@ -47,34 +79,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Добавляем в начало файла
-function navigateTo(url) {
-    const mainContent = document.querySelector('.page-content');
-    if (!mainContent) return window.location = url;
-    
-    mainContent.classList.add('page-exit-active');
-    
-    setTimeout(() => {
-        window.location = url;
-    }, 200);
-}
+// Добавляем в конец auth.js
+if (document.getElementById('resetForm')) {
+    const resetForm = document.getElementById('resetForm');
+    const successMessage = document.createElement('div');
+    successMessage.className = 'success-message';
+    successMessage.textContent = 'Ссылка для восстановления отправлена на ваш email!';
+    resetForm.prepend(successMessage);
 
-// Заменяем обычные ссылки на анимированные
-document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        if (link.href && !link.href.includes('#')) {
-            e.preventDefault();
-            navigateTo(link.href);
-        }
-    });
-});
-
-// Добавляем при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-    const content = document.querySelector('.page-content');
-    if (content) {
+    resetForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const button = resetForm.querySelector('button');
+        button.classList.add('loading');
+        
+        // Имитация отправки
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        successMessage.style.display = 'block';
+        resetForm.reset();
+        button.classList.remove('loading');
+        
+        // Автоскрытие сообщения
         setTimeout(() => {
-            content.classList.add('page-enter-active');
-        }, 10);
-    }
-});
+            successMessage.style.display = 'none';
+        }, 5000);
+    });
+}
