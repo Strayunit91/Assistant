@@ -55,6 +55,22 @@
       color: #efeae7;
     }
 
+        .forgot-password {
+      margin-top: 15px;
+      color: #75616a;
+      font-size: 14px;
+    }
+    
+    .forgot-password a {
+      color: #efeae7;
+      text-decoration: none;
+      margin-left: 5px;
+    }
+    
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+
     .hidden {
       display: none;
     }
@@ -70,6 +86,10 @@
       <button class="btn-primary" onclick="login()">ВОЙТИ</button>
       <button class="btn-secondary" onclick="showRegistration()">Регистрация</button>
     </div>
+
+    <div class="forgot-password">
+        Не помнишь пароль? <a href="password-reset.html">Восстановить</a>
+      </div>
 
     <div id="register-form" class="hidden">
       <input type="text" placeholder="Имя пользователя" id="reg-name" />
