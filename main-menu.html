@@ -1,16 +1,17 @@
 
-<script>
-  // Проверяем, есть ли данные пользователя
-  if (!localStorage.getItem('user')) {
-    window.location.href = "index.html";
-  }
-</script>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <script>
+  // Проверяем, есть ли данные пользователя
+  if (!localStorage.getItem('user')) {
+    window.location.href = "index.html";
+  }
+</script>
+  
   <title>Главное меню | Creative Assistant</title>
   <style>
     body {
