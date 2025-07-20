@@ -1,91 +1,44 @@
-/* Общие стили для всех страниц */
 :root {
-  --primary-color: #10a37f; /* Как в ChatGPT */
-  --background: #ffffff;
-  --text-color: #333333;
-  --input-border: #e0e0e0;
-  --button-hover: #0d8a6d;
+    --primary-color: #10a37f;
+    --dark-primary: #0d8a6d;
+    --background: #ffffff;
+    --text-color: #333333;
+    --input-border: #e0e0e0;
+    --error-color: #ff4444;
 }
 
-/* Для тёмной темы (опционально) */
-@media (prefers-color-scheme: dark) {
-  :root {
+[data-theme="dark"] {
     --background: #343541;
     --text-color: #f0f0f0;
     --input-border: #4d4d4d;
-  }
 }
 
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes loadingSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Общие стили */
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: var(--background);
-  color: var(--text-color);
-  line-height: 1.5;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text-color);
+    transition: background 0.3s ease;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
+.input-field {
+    transition: border 0.3s, box-shadow 0.3s;
 }
 
-/* Адаптивные медиа-запросы */
-@media (max-width: 768px) {
-  .container {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 10px;
-  }
-}
-
-/* Стили для форм (вход/регистрация) */
-.auth-form {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border-radius: 8px;
-  background: var(--background);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.auth-form input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
-  font-size: 16px;
-  background: var(--background);
-  color: var(--text-color);
-}
-
-.auth-form button {
-  width: 100%;
-  padding: 12px;
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.auth-form button:hover {
-  background: var(--button-hover);
-}
-
-/* Адаптация для маленьких экранов */
-@media (max-width: 480px) {
-  .auth-form {
-    margin: 20px auto;
-    padding: 15px;
-  }
+.input-field:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.2);
 }
