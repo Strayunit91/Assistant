@@ -139,6 +139,7 @@
       const user = JSON.parse(localStorage.getItem('user'));
 
       if (user && (user.email === emailOrPhone || user.phone === emailOrPhone) && user.password === password) {
+      window.location.href = "main-menu.html";
         alert("Вход выполнен!");
         // Здесь можно редирект или запуск основного функционала
       } else {
