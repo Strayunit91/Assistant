@@ -1,147 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Creative Assistant</title>
-    <style>
-        body {
-            background-color: #121212;
-            color: #f1f1f1;
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        input, textarea, button {
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
-            background: #1e1e1e;
-            color: #f1f1f1;
-            border: 1px solid #444;
-            border-radius: 5px;
-        }
-        #output {
-            white-space: pre-wrap;
-            margin-top: 20px;
-            background: #1a1a1a;
-            padding: 10px;
-            border: 1px solid #333;
-            border-radius: 5px;
-        }
-    </style>
+  <title>Creative Assistant — Вход</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #2f1f3b, #1b1127);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #fff;
+      margin-bottom: 30px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .input {
+      width: 80%;
+      max-width: 300px;
+      padding: 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 15px;
+      font-size: 16px;
+      background-color: #d2c7cc;
+      color: #2f1f3b;
+    }
+
+    .button {
+      width: 80%;
+      max-width: 300px;
+      padding: 15px;
+      margin: 20px 0 10px;
+      border: none;
+      border-radius: 15px;
+      background-color: #7d5d7e;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #9671a8;
+    }
+
+    .register {
+      font-size: 14px;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      border-radius: 15px;
+      background-color: transparent;
+      color: #ccc;
+      cursor: pointer;
+    }
+
+    .register:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
 <body>
-    <h1>Creative Assistant</h1>
 
-    <div id="passwordPrompt">
-        <p>Введите пароль доступа:</p>
-        <input type="password" id="accessPassword" placeholder="Пароль">
-        <button onclick="checkPassword()">Войти</button>
-    </div>
+  <div class="logo" id="logo" style="background-image: url('your-icon.png');"></div>
 
-    <div id="mainApp" style="display: none;">
-        <p>Загрузите файл Character.json:</p>
-        <input type="file" id="uploadJson" accept=".json"><br>
-        <button onclick="loadFromLocal()">Применить личность</button>
-        <button onclick="clearPersona()">Очистить личность</button>
-        <div id="status">👤 Личность не загружена.</div>
+  <input class="input" type="text" placeholder="E-mail или телефон" />
+  <input class="input" type="password" placeholder="Пароль" />
+  <button class="button">ВОЙТИ</button>
+  <button class="register">Регистрация</button>
 
-        <textarea id="userInput" rows="4" cols="50" placeholder="Напиши что-нибудь..."></textarea><br>
-        <button onclick="sendToModel()">Отправить</button>
-
-        <div id="output"></div>
-    </div>
-
-    <script>
-        const correctPassword = "VikoshaTosha"; // можно сменить
-
-        function checkPassword() {
-            const input = document.getElementById("accessPassword").value;
-            if (input === correctPassword) {
-                document.getElementById("passwordPrompt").style.display = "none";
-                document.getElementById("mainApp").style.display = "block";
-            } else {
-                alert("Неверный пароль 😘");
-            }
-        }
-
-        const uploadInput = document.getElementById("uploadJson");
-        let currentPersona = {};
-
-        uploadInput.addEventListener("change", function () {
-            const file = this.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                const data = JSON.parse(e.target.result);
-                localStorage.setItem("toshaProfile", JSON.stringify(data));
-                currentPersona = data;
-                alert("Tosha загружен и сохранён локально 😏");
-            };
-
-            reader.readAsText(file);
-        });
-
-        window.addEventListener("DOMContentLoaded", () => {
-            const toshaData = localStorage.getItem("toshaProfile");
-            if (toshaData) {
-                currentPersona = JSON.parse(toshaData);
-                console.log("Tosha активен:", currentPersona);
-            }
-        });
-
-              function loadFromLocal() {
-            const toshaData = localStorage.getItem("toshaProfile");
-            if (toshaData) {
-                currentPersona = JSON.parse(toshaData);
-                updateStatus();
-                alert("Личность Tosha применена 🧠");
-            } else {
-                alert("Личность не найдена в памяти 😔");
-            }
-        }
-
-        function clearPersona() {
-            localStorage.removeItem("toshaProfile");
-            currentPersona = {};
-            updateStatus();
-            alert("Личность сброшена 💨");
-        }
-
-        function updateStatus() {
-            const statusDiv = document.getElementById("status");
-            if (currentPersona?.name || currentPersona?.description) {
-                statusDiv.innerHTML = `✅ Личность активна: ${currentPersona.name || "без имени"}<br>${currentPersona.description || ""}`;
-            } else {
-                statusDiv.innerHTML = "👤 Личность не загружена.";
-            }
-        }
-      
-        async function sendToModel() {
-            const prompt = document.getElementById("userInput").value;
-            const responseDiv = document.getElementById("output");
-            responseDiv.innerHTML = "⌛ Думаю...";
-
-            try {
-                const response = await fetch("https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF"), {
-                    method: "POST",
-                    headers: {
-                        "Authorization": "Bearer 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",
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        inputs: prompt,
-                        parameters: { temperature: 0.8 }
-                    })
-                });
-
-                const result = await response.json();
-                responseDiv.innerHTML = result[0]?.generated_text || "🤔 Модель ничего не ответила.";
-            } catch (error) {
-                responseDiv.innerHTML = "❌ Ошибка: " + error;
-            }
-        }
-    </script>
 </body>
 </html>
