@@ -54,3 +54,23 @@
     border-radius: 50%;
     animation: loadingSpin 1s linear infinite;
 }
+
+/* Стили для страницы восстановления */
+.reset-instructions {
+    margin-bottom: 25px;
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.success-message {
+    color: var(--primary-color);
+    background: rgba(16, 163, 127, 0.1);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: none;
+}
