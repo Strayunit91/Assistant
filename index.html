@@ -1,23 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative Assistant — Вход</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative Assistant - Login</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #2d253c, #0f080f);
+      background: linear-gradient(to bottom, #2e1f39, #1c1424);
+      font-family: sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
-      color: #cec3c1;
+      margin: 0;
     }
 
-        .container {
+    .container {
       width: 90%;
       max-width: 320px;
       background-color: transparent;
@@ -29,62 +28,40 @@
     .logo {
       width: 80px;
       height: 80px;
-      border-radius: 50%;
-      background-color: #cec3c1;
       margin: 0 auto 20px auto;
-      background-size: cover;
-      background-position: center;
+      background-color: #fff;
+      border-radius: 50%;
     }
 
-    .input {
-      width: 80%;
-      max-width: 300px;
-      padding: 15px;
+    input, button {
+      width: 100%;
+      padding: 12px;
       margin: 10px 0;
+      border-radius: 10px;
       border: none;
-      border-radius: 15px;
       font-size: 16px;
-      background-color: #cec3c1;
-      color: #cec3c1;
     }
 
-    .button {
-      width: 80%;
-      max-width: 300px;
-      padding: 15px;
-      margin: 20px 0 10px;
-      border: 1px solid #cec3c1;
-      color: #cec3c1;
-      border-radius: 15px;
-      background-color: #4b3d4c;
+    .btn-primary {
+      background-color: #8c6a90;
       color: white;
-      font-size: 16px;
       font-weight: bold;
-      cursor: pointer;
     }
 
-    .button:hover {
-      background-color: #75616a;
-    }
-
-    .register {
-      font-size: 14px;
-      border: 1px solid #ccc;
-      padding: 10px 20px;
-      border-radius: 15px;
+    .btn-secondary {
       background-color: transparent;
-      color: #ccc;
-      cursor: pointer;
+      border: 1px solid #bfa7cc;
+      color: #bfa7cc;
     }
 
-    .register:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="logo" id="logo" style="background-image: url('icon.png');"></div>
+    <div class="logo"></div>
 
     <div id="login-form">
       <input type="text" placeholder="E-mail или телефон" id="login-user" />
