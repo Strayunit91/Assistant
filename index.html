@@ -47,27 +47,27 @@
       padding: 12px;
       border: none;
       border-radius: 12px;
-      background-color: #4b3d4c;
+      background-color: #7e5c87;
       color: white;
       font-size: 16px;
       margin-top: 10px;
       cursor: pointer;
     }
+
+    .register-btn {
+      background: transparent;
+      border: 2px solid white;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <img src="images/logo.jpg" alt="Логотип" class="logo">
-        
-        <form id="loginForm">
-            <input type="text" class="input-field" placeholder="E-mail или телефон" required>
-            <input type="password" class="input-field" placeholder="Пароль" required>
-            <button type="submit" class="login-button">ВОЙТИ</button>
-        </form>
-        
-        <p>Ещё нет аккаунта? <a href="register.html" class="register-link">Регистрация</a></p>
-    </div>
-
-    <!-- Подключаем скрипты -->
-    <script src="auth.js"></script>
+  <div class="container">
+    <img src="default_avatar.png" alt="Avatar" class="avatar" />
+    <input type="text" placeholder="E-mail или телефон" />
+    <input type="password" placeholder="Пароль" />
+    <button>ВОЙТИ</button>
+    <button class="register-btn" onclick="window.location.href='register.html'">Регистрация</button>
+  </div>
 </body>
 </html>
