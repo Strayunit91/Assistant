@@ -1,6 +1,6 @@
 /* Общие стили для всех страниц */
 :root {
-  --primary-color: linear-gradient(to bottom, #2d253c, #0f080f);
+  --primary-color: #10a37f; /* Как в ChatGPT */
   --background: #ffffff;
   --text-color: #333333;
   --input-border: #e0e0e0;
