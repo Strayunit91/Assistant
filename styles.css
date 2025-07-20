@@ -1,10 +1,10 @@
 :root {
-    --primary-color: linear-gradient(to bottom, #cec3c1, #75616a)
-    --dark-primary: linear-gradient(to bottom, #2d253c, #0f080f)
+    --primary-color: linear-gradient(to bottom, #cec3c1, #75616a);
+    --dark-primary: linear-gradient(to bottom, #2d253c, #0f080f);
     --background: #cec3c1;
-    --text-color: #333333;
-    --input-border: #e0e0e0;
-    --error-color: #ff4444;
+    --text-color: #0f080f;
+    --input-border: #cec3c1;
+    --error-color: #d4949d;
 }
 
 [data-theme="dark"] {
