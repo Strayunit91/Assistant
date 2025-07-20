@@ -7,17 +7,19 @@
 }
 
 .logo {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 30px;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px auto;
+      background-color: #cec3c1;
+      border-radius: 50%;
 }
 
 .input-field {
     width: 100%;
     padding: 15px;
-    margin-bottom: 20px;
+    margin: 10px 0;
     border: 1px solid var(--input-border);
-    border-radius: 6px;
+    border-radius: 12px;
     font-size: 16px;
 }
 
