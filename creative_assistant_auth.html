@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative Assistant - Login</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #2e1f39, #1c1424);
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 320px;
+      background-color: transparent;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px auto;
+      background-color: #fff;
+      border-radius: 50%;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background-color: #8c6a90;
+      color: white;
+      font-weight: bold;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 1px solid #bfa7cc;
+      color: #bfa7cc;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo"></div>
+
+    <div id="login-form">
+      <input type="text" placeholder="E-mail или телефон" id="login-user" />
+      <input type="password" placeholder="Пароль" id="login-password" />
+      <button class="btn-primary" onclick="login()">ВОЙТИ</button>
+      <button class="btn-secondary" onclick="showRegistration()">Регистрация</button>
+    </div>
+
+    <div id="register-form" class="hidden">
+      <input type="text" placeholder="Имя пользователя" id="reg-name" />
+      <input type="text" placeholder="Телефон" id="reg-phone" />
+      <input type="email" placeholder="E-mail" id="reg-email" />
+      <input type="password" placeholder="Придумай пароль" id="reg-password" />
+      <input type="password" placeholder="Повтори пароль" id="reg-password-repeat" />
+      <button class="btn-primary" onclick="register()">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+      <button class="btn-secondary" onclick="showLogin()">Назад</button>
+    </div>
+  </div>
+
+  <script>
+    function showRegistration() {
+      document.getElementById('login-form').classList.add('hidden');
+      document.getElementById('register-form').classList.remove('hidden');
+    }
+
+    function showLogin() {
+      document.getElementById('register-form').classList.add('hidden');
+      document.getElementById('login-form').classList.remove('hidden');
+    }
+
+    function register() {
+      const name = document.getElementById('reg-name').value;
+      const phone = document.getElementById('reg-phone').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      const repeat = document.getElementById('reg-password-repeat').value;
+
+      if (password !== repeat) {
+        alert("Пароли не совпадают!");
+        return;
+      }
+
+      const user = { name, phone, email, password };
+      localStorage.setItem('user', JSON.stringify(user));
+      alert("Регистрация прошла успешно!");
+
+      showLogin();
+    }
+
+    function login() {
+      const emailOrPhone = document.getElementById('login-user').value;
+      const password = document.getElementById('login-password').value;
+
+      const user = JSON.parse(localStorage.getItem('user'));
+
+      if (user && (user.email === emailOrPhone || user.phone === emailOrPhone) && user.password === password) {
+        alert("Вход выполнен!");
+        // Здесь можно редирект или запуск основного функционала
+      } else {
+        alert("Неверные данные для входа.");
+      }
+    }
+  </script>
+</body>
+</html>
