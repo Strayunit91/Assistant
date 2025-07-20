@@ -1,8 +1,11 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: #eee;
+      background: linear-gradient(to bottom, #2d253c, #0f080f);
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
 }
 .container {
   padding: 20px;
