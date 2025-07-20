@@ -46,3 +46,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Добавляем в начало файла
+function navigateTo(url) {
+    const mainContent = document.querySelector('.page-content');
+    if (!mainContent) return window.location = url;
+    
+    mainContent.classList.add('page-exit-active');
+    
+    setTimeout(() => {
+        window.location = url;
+    }, 200);
+}
+
+// Заменяем обычные ссылки на анимированные
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (link.href && !link.href.includes('#')) {
+            e.preventDefault();
+            navigateTo(link.href);
+        }
+    });
+});
+
+// Добавляем при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    const content = document.querySelector('.page-content');
+    if (content) {
+        setTimeout(() => {
+            content.classList.add('page-enter-active');
+        }, 10);
+    }
+});
