@@ -1,4 +1,5 @@
 
+Vikosha Tosha, [20.07.2025 19:07]
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -58,6 +59,23 @@
     .hidden {
       display: none;
     }
+    
+    /* Добавляем новые стили */
+    .forgot-password {
+      margin-top: 15px;
+      color: #75616a;
+      font-size: 14px;
+    }
+    
+    .forgot-password a {
+      color: #efeae7;
+      text-decoration: none;
+      margin-left: 5px;
+    }
+    
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -69,7 +87,11 @@
       <input type="password" placeholder="Пароль" id="login-password" />
       <button class="btn-primary" onclick="login()">ВОЙТИ</button>
       <button class="btn-secondary" onclick="showRegistration()">Регистрация</button>
-      <p>Не помнишь пароль? <a href="password-reset.html" class="page-wrapper">Восстановить</a></p>
+      
+      <!-- Добавляем блок с ссылкой восстановления пароля -->
+      <div class="forgot-password">
+        Не помнишь пароль? <a href="password-reset.html">Восстановить</a>
+      </div>
     </div>
 
     <div id="register-form" class="hidden">
@@ -119,7 +141,8 @@
 
       const user = JSON.parse(localStorage.getItem('user'));
 
-      if (user && (user.email === emailOrPhone || user.phone === emailOrPhone) && user.password === password) {
+Vikosha Tosha, [20.07.2025 19:07]
+if (user && (user.email === emailOrPhone || user.phone === emailOrPhone) && user.password === password) {
         alert("Вход выполнен!");
         // Здесь можно редирект или запуск основного функционала
       } else {
