@@ -1,78 +1,39 @@
-:root {
-    --primary-color: linear-gradient(to bottom, #cec3c1, #75616a);
-    --dark-primary: linear-gradient(to bottom, #2d253c, #0f080f);
-    --background: linear-gradient(to bottom, #cec3c1, #75616a);
-    --text-color: #0f080f;
-    --input-border: #cec3c1;
-    --error-color: #d4949d;
-}
-
-[data-theme="dark"] {
-    --background: linear-gradient(to bottom, #2d253c, #0f080f);
-    --text-color: #efeae7;
-    --input-border: #4d4d4d;
-}
-
-/* Анимации */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes loadingSpin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Анимации переходов */
-.page-enter {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.page-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.3s ease-out;
-}
-
-.page-exit {
-    opacity: 1;
-}
-
-.page-exit-active {
-    opacity: 0;
-    transition: all 0.2s ease-in;
-}
-
-/* Обертка для контента */
-.page-wrapper {
-    position: relative;
-    min-height: 100vh;
-}
-
-.page-content {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
-
-/* Общие стили */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--background);
-    color: var(--text-color);
-    transition: background 0.3s ease;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
 }
-
-.input-field {
-    transition: border 0.3s, box-shadow 0.3s;
+.container {
+  padding: 20px;
 }
-
-.input-field:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.2);
+#chat-box {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #333;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #222;
+}
+.controls {
+  display: flex;
+}
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #333;
+  color: #fff;
+}
+button {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.panic {
+  margin-top: 10px;
+  background: crimson;
 }
