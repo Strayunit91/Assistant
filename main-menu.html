@@ -138,8 +138,9 @@
   <div class="main-content" id="main">
     <span class="burger-btn" onclick="openNav()">&#9776;</span>
     
-    <button class="menu-btn btn-primary" onclick=""window.location.href='new-chat.html'">НОВЫЙ ЧАТ</button>
-    <button class="menu-btn btn-secondary" onclick="window.location.href='my-chats.html'">МОИ ЧАТЫ</button>
+    <button class="menu-btn btn-primary" onclick="newChat()">НОВЫЙ ЧАТ</button>
+    <button class="menu-btn btn-secondary" onclick="navigateToChats()">МОИ ЧАТЫ</button>
+
   </div>
 
   <script>
@@ -154,15 +155,11 @@
     }
 
     function newChat() {
-      // Переход на страницу нового чата
-      alert("Создание нового чата");
-      // window.location.href = "new-chat.html";
+      window.location.href = "new-chat.html";
     }
 
-    function myChats() {
-      // Переход на страницу списка чатов
-      alert("Открытие списка чатов");
-      // window.location.href = "my-chats.html";
+    function navigateToChats() {
+      window.location.href = "my-chats.html";
     }
 
     function logout() {
